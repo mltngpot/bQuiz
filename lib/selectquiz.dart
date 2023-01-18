@@ -6,6 +6,8 @@ import 'appstate.dart';
 import 'quizinfo.dart';
 
 class SelectQuiz extends StatelessWidget {
+  const SelectQuiz({super.key});
+
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<AppState>();

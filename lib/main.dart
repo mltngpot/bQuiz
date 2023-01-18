@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import 'appstate.dart';
 import 'quiz.dart';
-import 'quizbuilder.dart';
 import 'selectquiz.dart';
 
 void main() {
@@ -44,9 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
     var appState = context.watch<AppState>();
 
     if (appState.current == 0) {
-      page = SelectQuiz();
+      page = const SelectQuiz();
     } else {
-      page = const QuizBuilder();
+      page = const Quiz();
     }
 
     return Scaffold(
@@ -57,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            page,
+            Expanded(child: page),
           ],
         ),
       ),

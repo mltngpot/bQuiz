@@ -1,21 +1,15 @@
 import 'dart:math';
-
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import 'appstate.dart';
 import 'question.dart';
-import 'quiz.dart';
 
-class QuizBuilder extends StatelessWidget {
-  const QuizBuilder({super.key});
+class QuizBuilder {
+  int quizId;
+  QuizBuilder(this.quizId);
+  List<Question> quizQuestions = <Question>[];
 
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<AppState>();
+  build() {
     Random random = Random();
     List<String> words;
-    switch (appState.current) {
+    switch (quizId) {
       case 1:
         words = <String>["at", "as", "are", "and", "an", "am", "all", "a"];
         break;
@@ -63,19 +57,15 @@ class QuizBuilder extends StatelessWidget {
 
       questions.add(Question(word, answers));
     }
-    List<Question> quizQuestions = <Question>[];
+    quizQuestions = <Question>[];
 
     while (questions.isNotEmpty) {
       int nextQuestion = random.nextInt(questions.length);
       quizQuestions.add(questions.removeAt(nextQuestion));
     }
+  }
 
-    Quiz quiz = Quiz();
-
-    for (Question question in questions) {
-      quiz.addQuestion(question);
-    }
-
-    return quiz;
+  List<Question> getQuizQuestions() {
+    return quizQuestions;
   }
 }

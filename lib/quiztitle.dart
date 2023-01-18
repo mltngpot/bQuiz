@@ -15,7 +15,7 @@ class QuizTitle extends StatelessWidget {
 
     return ElevatedButton(
       onPressed: () {
-        appState.current = quizInfo.id;
+        appState.changePage(quizInfo.id);
       },
       child: Text(quizInfo.title),
     );

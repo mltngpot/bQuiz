@@ -1,6 +1,6 @@
 class QuizInfo {
-  var title;
-  var id;
+  String title;
+  int id;
 
   QuizInfo({
     required this.title,

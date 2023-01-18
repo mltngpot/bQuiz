@@ -7,4 +7,9 @@ class AppState extends ChangeNotifier {
     QuizInfo(title: "Level 1", id: 1),
     QuizInfo(title: "Level 2", id: 2),
   ];
+
+  void changePage(int changeTo) {
+    current = changeTo;
+    notifyListeners();
+  }
 }
